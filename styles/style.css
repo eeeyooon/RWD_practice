@@ -6,13 +6,12 @@
 
 /* 모든 디바이스 (All Device) */
 /* 공통 헤더 */
-
 .appHeader {
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-  padding: var(--space-base) var(--spacing-lg);
-  gap: var(--space-base);
+  padding: var(--spacing-base) var(--spacing-lg);
+  gap: var(--spacing-base);
 }
 
 /* 공통 로고*/
@@ -27,7 +26,6 @@
   height: 100%;
   background: url(./../images/webcafe-logo.png) no-repeat 0 0/100% 100%;
 }
-
 
 /* 공통 멤버서비스 */
 .memberOnly {
@@ -57,16 +55,15 @@ input[type="search"] {
   border: 1px solid var(--silver);
   background: var(--white);
   border-radius: 0.25rem;
-  padding: var(--spacing-ssxs) var(--spacing-sm);
+  padding: var(--spacing-sxxs) var(--spacing-sm);
 }
 
 .button {
   cursor: pointer;
   height: 2rem;
   border-radius: 0.25rem;
-  padding: var(--spacing-ssxs) var(--spacing-sm);
+  padding: var(--spacing-sxxs) var(--spacing-sm);
   flex: 0 0 auto;
-  /* white-space: nowrap; */
   font-size: var(--text-sm);
 }
 
@@ -88,7 +85,6 @@ input[type="search"] {
   border: 1px solid currentColor;
 }
 
-
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
@@ -108,8 +104,56 @@ input[type="search"] {
     flex-grow: 1;
   }
 
-}
+  /* 모바일 메뉴 제어 버튼 시작 */
 
+  .buttonWrapper {
+    background: gold;
+    overflow: hidden;
+  }
+
+  .button--burger {
+    width: 30px;
+    height: 30px;
+    background: blue;
+    position: relative;
+  }
+
+  [class*="button--burgerBar"] {
+    background: var(--white);
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    transition: all 200ms;
+  }
+
+  .button--burgerBarTop {
+    top: 0;
+  }
+  .button--burgerBarMiddle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .button--burgerBarBottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+
+  .is--active .button--burgerBarTop {
+    top: 50%;
+    transform: translate(0%, -50%) rotate(-45deg);
+  }
+  .is--active .button--burgerBarMiddle {
+    transform: translate(-100%, -50%);
+  }
+  .is--active .button--burgerBarBottom {
+    top: 50%;
+    transform: translate(0%, -50%) rotate(45deg);
+  }
+
+  /* 모바일 메뉴 제어 버튼 종료 */
+}
 
 /* 데스크탑 디바이스 (Desktop Device) */
 @media (min-width: 769px) {
@@ -128,7 +172,6 @@ input[type="search"] {
     transform: translateY(-50%);
   }
 
-  
   /* 데스크탑 검색 폼 */
   .searchForm__group {
     justify-content: flex-end;
@@ -138,8 +181,11 @@ input[type="search"] {
     width: 25rem;
   }
 
+  /* 데스크탑 메인메뉴 제어버튼 */
+  .button--burger {
+    display: none;
+  }
 }
-
 
 /* 고해상도 배경이미지 미디어쿼리 */
 @media (-webkit-min-device-pixel-ratio: 2),
