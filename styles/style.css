@@ -214,6 +214,7 @@ input[type="search"] {
   grid-area: board;
   display: flex;
   flex-flow: row wrap;
+  overflow: hidden;
 }
 
 .board__title {
@@ -224,29 +225,34 @@ input[type="search"] {
 .board__list {
   /* background-color: skyblue; */
   order: 1;
-  flex: 1 1 0;
+  flex: 1 1 auto;
   display: flex;
   flex-flow: column nowrap;
   gap: var(--spacing-sm);
+  width: 100%;
 }
 
 .board__item {
   /* background-color: cornflowerblue; */
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 .board__link {
   /* background-color: yellow; */
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: calc(100% - 6.25em);
 }
 
 .board__date {
   /* background-color: burlywood; */
   flex: 0 0 auto;
+  width: 6.25em;
+  text-align: right;
 }
 
 .board__more {
